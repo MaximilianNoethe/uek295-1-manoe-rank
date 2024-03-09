@@ -1,25 +1,29 @@
 package ch.noseryoung.uek2951manoerank.domain.rank;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 
 @Getter
 @Entity
+@Table(name = "rank")
 public class Rank {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
+    @Column(name = "rank")
     private int rank;
 
+
+    @Column(name = "buy_count")
     private int buyCount;
 
+
+    @Column(name = "book_name")
     private String bookName;
 
 
