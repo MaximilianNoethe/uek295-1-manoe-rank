@@ -23,23 +23,24 @@ public class RankService {
         return repository.findById(id).orElseThrow(() -> new NoSuchElementException("The id " + id + " doesn't exist."));
     }
 
-    public Rank addRank(Rank newRank) {
+    public Rank addRank(Rank newRank) throws InstanceAlreadyExistsException {
+        Rank existingRank = repository.findByRank(newRank.getRank());
+        if (existingRank != null) {
+            throw new InstanceAlreadyExistsException("A book with this rank already exists.");
+        }
         return repository.save(newRank); // save -> Saves the new rank into database
     }
 
     public Rank updateRank(Rank rank, int id) throws InstanceAlreadyExistsException {
-        if (!repository.existsById(rank.getId())) {
-            return repository.save(rank);
-        } else if (Objects.equals(rank.getId(), id)) {
-            throw new InstanceAlreadyExistsException("The id " + id + " already exists.");
+        if (!repository.existsById(id)) {
+            throw new InstanceAlreadyExistsException("The id " + id + " does not exist.");
         }
-        return null;
+        rank.setId(id);
+        return repository.save(rank);
     }
 
-    public void deleteRank(int id){
+    public void deleteRank(int id) {
         repository.deleteById(id);
     }
-
-
 
 }
