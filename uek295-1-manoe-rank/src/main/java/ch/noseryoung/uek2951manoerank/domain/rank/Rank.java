@@ -3,14 +3,17 @@ package ch.noseryoung.uek2951manoerank.domain.rank;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
+@Setter
 @Entity
 @Table(name = "rank")
 public class Rank {
 
     @Id
+    @Column(name = "rank_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -24,6 +27,7 @@ public class Rank {
 
 
     @Column(name = "book_name")
+
     private String bookName;
 
 
