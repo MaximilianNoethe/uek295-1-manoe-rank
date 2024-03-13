@@ -18,14 +18,14 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return repository.findByName(name).map(UserDetailsImpl::new)
+        return repository.findByUserName(name).map(UserDetailsImpl::new)
                 .orElseThrow(() -> new UsernameNotFoundException(name));
     }
 
     public record UserDetailsImpl(User user) implements UserDetails {
-        @Override
+        @Override // Takes values from parentclass
         public Collection<? extends GrantedAuthority> getAuthorities() {
-            return user.getUserRoles().getRoleAuth().stream()
+            return user.getUserRole().getRoleAuth().stream()
                     .map(a -> new SimpleGrantedAuthority(a.getAuthorityName()))
                     .toList();
         }
