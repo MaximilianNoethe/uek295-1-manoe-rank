@@ -23,14 +23,10 @@ public class User {
     private String password;
 
     @ManyToOne
-    @JoinTable(
-            name = "rank_users_roles",
-            joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "user_id"),
-            inverseJoinColumns = @JoinColumn
-                    (name = "id_role", referencedColumnName = "role_id")
-    )
+    @JoinColumn(
+            name = "id_role", referencedColumnName = "role_id")
+    private Role userRole;
 
-    private Role userRoles;  // FK
 
 }
 
