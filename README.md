@@ -31,7 +31,7 @@ password: Uek295_2
 
 Thank you for using my program and have fun with it!
 
-# Important infromation
+# Important information
 
 If you want to send a put request that changes the content of your rank, but you keep the same rank, a 409 response code will be generated. 
 
