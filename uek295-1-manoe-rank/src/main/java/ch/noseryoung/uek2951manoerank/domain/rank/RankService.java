@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.InstanceNotFoundException;
 import java.util.List;
-import java.util.NoSuchElementException;
+
 
 
 @Service
@@ -28,12 +28,12 @@ public class RankService {
         if (existingRank != null) {
             throw new InstanceAlreadyExistsException("A book with this rank already exists.");
         }
-        return repository.save(newRank); // save -> Saves the new rank into database
+        return repository.save(newRank);
     }
 
     public Rank updateRank(Rank rank, int id) throws InstanceNotFoundException, InstanceAlreadyExistsException {
         Rank existingRank = repository.findByRank(rank.getRank());
-        if (!repository.existsById(id)) { // existsById -> Boolean to look if the id exists or not.
+        if (!repository.existsById(id)) {
             throw new InstanceNotFoundException("Rank with id " + id + " could not be found.");
         } else if (existingRank != null) {
             throw new InstanceAlreadyExistsException("A book with this rank already exists. Change the other rank before updating this book.");

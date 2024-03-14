@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.management.InstanceAlreadyExistsException;
 import javax.management.InstanceNotFoundException;
 import java.util.List;
-import java.util.Objects;
+
 
 
 @RestController
@@ -27,7 +27,7 @@ public class RankController {
     @GetMapping("/all")
     @PreAuthorize("hasAuthority('GET')")
     @Operation(summary = "Get all ranks", description = "Takes all rated book and returns a JSON with the status code 200")
-    public List<Rank> getAll() { // -> List -> A list from Rank
+    public List<Rank> getAll() {
         return service.getAll();
     }
 
@@ -64,7 +64,7 @@ public class RankController {
 
 
     @ExceptionHandler(InstanceAlreadyExistsException.class)
-    public ResponseEntity<String> rankInstanceAlreadyExistsException(InstanceAlreadyExistsException iaee) { // iaee -> InstanceAlreadyExistsException
+    public ResponseEntity<String> rankInstanceAlreadyExistsException(InstanceAlreadyExistsException iaee) {
         return ResponseEntity.status(409).body(iaee.getMessage());
     }
 

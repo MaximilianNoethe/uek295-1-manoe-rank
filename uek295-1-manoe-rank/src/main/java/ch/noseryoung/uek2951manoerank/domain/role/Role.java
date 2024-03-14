@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "role")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Identity ->
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     private Integer roleId;
 
@@ -31,5 +31,5 @@ public class Role {
                     @JoinColumn(name = "id_authority", referencedColumnName = "authority_id")
             }
     )
-    private Set<Authority> roleAuth; // set -> similar to List.
+    private Set<Authority> roleAuth;
 }
