@@ -12,8 +12,8 @@ import lombok.Setter;
 public class Authority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "authority_Id")
-    private Integer auhtorityId;
+    @Column(name = "authority_id")
+    private Integer authorityId;
 
     @Column(name = "name")
     private String authorityName;

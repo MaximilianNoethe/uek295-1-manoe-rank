@@ -7,16 +7,16 @@ VALUES (1, 1000, 'Besuch der alten Dame'),
 
 
 -- roles
-INSERT INTO roles(role_Id, name)
+INSERT INTO role(role_id, name)
 VALUES (1, 'ADMIN'),
-       (2, 'USER') ON CONFLICT DO NOTHING;
+       (2, 'USER');
 
 -- authorities
-INSERT INTO authorities(authority_Id, name)
+INSERT INTO authority(authority_id, name)
 VALUES (1, 'GET'),
        (2, 'POST'),
        (3, 'PUT'),
-       (4, 'DELETE') ON CONFLICT DO NOTHING; -- If a conflict appears, do nothing.
+       (4, 'DELETE');
 
 -- assign authorities to roles
 INSERT INTO rank_roles_authorities(id_role, id_authority)
@@ -25,12 +25,12 @@ VALUES (1, 1),
        (1, 3),
        (1, 4),
        (2, 1),
-       (2, 2) ON CONFLICT DO NOTHING;
+       (2, 2);
 
 -- users and assign roles to users
-INSERT INTO users (user_Id, user_Name, password, id_role)
+INSERT INTO users (user_id, user_name, password, id_role)
 VALUES (1, 'user', 'Uek295', 1),
-       (2, 'user2', 'Uek295_2', 2) ON CONFLICT DO NOTHING; -- If a conflict appears, do nothing.
+       (2, 'user2', 'Uek295_2', 2);
 
 
 

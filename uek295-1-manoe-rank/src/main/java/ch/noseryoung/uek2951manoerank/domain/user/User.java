@@ -13,18 +13,17 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_Id")
+    @Column(name = "user_id")
     private Integer userId;
 
-    @Column(name = "user_Name")
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "password")
     private String password;
 
     @ManyToOne
-    @JoinColumn(
-            name = "id_role", referencedColumnName = "role_id")
+    @JoinColumn(name = "id_role", referencedColumnName = "role_id")
     private Role userRole;
 
 

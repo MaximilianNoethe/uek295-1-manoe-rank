@@ -11,11 +11,11 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_Id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Identity ->
+    @Column(name = "role_id")
     private Integer roleId;
 
     @Column(name = "name")
@@ -31,5 +31,5 @@ public class Role {
                     @JoinColumn(name = "id_authority", referencedColumnName = "authority_id")
             }
     )
-    private Set<Authority> roleAuth; // Join of role and authority.
+    private Set<Authority> roleAuth; // set -> similar to List.
 }
