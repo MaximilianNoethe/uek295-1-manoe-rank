@@ -19,8 +19,8 @@ public class RankService {
         return repository.findAll();
     }
 
-    public Rank getById(int id) {
-        return repository.findById(id).orElseThrow(() -> new NoSuchElementException("Rank with id " + id + " could not be found."));
+    public Rank getById(int id) throws InstanceNotFoundException {
+        return repository.findById(id).orElseThrow(() -> new InstanceNotFoundException("Rank with id " + id + " could not be found."));
     }
 
     public Rank addRank(Rank newRank) throws InstanceAlreadyExistsException {
