@@ -27,7 +27,7 @@ password: Uek295_2
 
 ## After login
 
-[Here](http://localhost:8080/rank)  you can access the localhost and [here](http://localhost:8080/swagger-ui/index.html#/rank-controller/) you can find my swagger documentation.
+[Here](http://localhost:8080/rank/all)  you can access the localhost and [here](http://localhost:8080/swagger-ui/index.html#/rank-controller/) you can find my swagger documentation.
 
 Thank you for using my program and have fun with it!
 
